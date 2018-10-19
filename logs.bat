@@ -1,0 +1,1 @@
+start "PRINT ITSC" /MIN pm2 logs 'PRINT_ITSC'
