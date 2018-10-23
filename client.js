@@ -56,7 +56,7 @@ async function imprimir (request, response_cb) {
         })
 
     } catch (e) {
-        if (e.code === e.outs === e.errores === undefined) {
+        if (isNaN(e.code) || e.outs === undefined || e.errores === undefined) {
             console.log('ERROR_NO_CONTROLADO', e, '\n')
             response_cb({exito: false, data: `ERROR_NO_CONTROLADO ${e}`})
         } else {
@@ -96,6 +96,8 @@ function pasteFile (file_name, file_base64) {
 function execScript (path, printer) {
     return new Promise((resolve, reject) => {
 
+        var outs = []
+        var errores = []
         var java = spawn('javaw', [
             '-cp', 
             '".;pdfbox-app-2.0.12.jar"', 
@@ -104,9 +106,6 @@ function execScript (path, printer) {
             `PRINTER=${printer}`, 
             `FILE_PATH=${path}`
         ])
-
-        var outs = []
-        var errores = []
         
         console.log('\n')
         console.log(new Date().toLocaleString(), "------IMPRIMIENDO------")
