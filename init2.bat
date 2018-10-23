@@ -1,0 +1,1 @@
+start "PRINT ITSC" /MIN node client.js

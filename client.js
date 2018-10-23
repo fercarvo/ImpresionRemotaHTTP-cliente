@@ -20,14 +20,14 @@ var hub = io(`ws://${hostname_server}:${puerto_server}`, {
  */
 hub.on('imprimir', imprimir)
 
-hub.on('connect', () => console.log(new Date(), `Conectado [${cliente_name}] a ws://${hostname_server}:${puerto_server}`))
+hub.on('connect', () => console.log(new Date().toLocaleString(),    `[${cliente_name}] --(online)---> ws://${hostname_server}:${puerto_server}`))
 
-hub.on('disconnect', () => console.log(new Date(), `Perdida de conexion [${cliente_name}] a ws://${hostname_server}:${puerto_server}`))
+hub.on('disconnect', () => console.log(new Date().toLocaleString(), `[${cliente_name}] --(offline)--> ws://${hostname_server}:${puerto_server}`))
 
 hub.on('error', err => {
     if (typeof err === 'string' || err instanceof String) {
         setInterval(()=> {
-            console.log(new Date(), `Error ${err} | cierre y abra el programa o notifique a Sistemas`)
+            console.log(new Date().toLocaleString(), `Error ${err} | cierre y abra el programa o notifique a Sistemas`)
         }, 2000)
         
         hub.close() 
@@ -109,7 +109,7 @@ function execScript (path, printer) {
         var errores = []
         
         console.log('\n')
-        console.log(new Date(), "------IMPRIMIENDO------")
+        console.log(new Date().toLocaleString(), "------IMPRIMIENDO------")
         console.log("\n")
 
         java.stdout.on('data', data => outs.push(`${data}`))          
