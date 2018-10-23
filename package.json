@@ -1,5 +1,5 @@
 {
-  "name": "ImpresionRemotaHTTP_cliente",
+  "name": "impresionremotahttp_cliente",
   "version": "1.0.0",
   "description": "Modulo cliente del sistema de impresion remota para puntos sin acceso a una IP publica y con varias impresoras configuradas",
   "main": "app.js",
