@@ -1,13 +1,17 @@
 {
-  "name": "test-server",
+  "name": "ImpresionRemotaHTTP_cliente",
   "version": "1.0.0",
-  "description": "",
+  "description": "Modulo cliente del sistema de impresion remota para puntos sin acceso a una IP publica y con varias impresoras configuradas",
   "main": "app.js",
   "scripts": {
     "start": "node client.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Edgar Carvajal",
+    "email": "efcu93@gmail.com",
+    "url": "https://fercarvo.github.io"
+  },
+  "license": "MIT",
   "dependencies": {
     "socket.io-client": "^2.1.1"
   }
